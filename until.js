@@ -211,17 +211,17 @@ export function GetDistance( lat1,  lng1,  lat2,  lng2){
  * @description 计算分页序号的方法
  */
 export const getIndex = (index, total, size, current, sortType = 1) => {
-  if (typeof index === 'string') {
-    index = parseInt(index)
+  if (typeof index !== "number") {
+    throw `index不能为${typeof index}`
   }
-  if (typeof size === 'string') {
-    size = parseInt(size)
+  if (typeof size !== "number") {
+    throw `size不能为${typeof size}`
   }
-  if (typeof total === 'string') {
-    total = parseInt(total)
+  if (typeof total !== "number") {
+    throw `total不能为${typeof total}`
   }
-  if (typeof current === 'string') {
-    current = parseInt(current)
+  if (typeof current !== "number") {
+    throw `current不能为${typeof current}`
   }
   if (sortType === 1) {
     return Math.abs(((total - ((index + 1) + (size * (current - 1)))) - total))
