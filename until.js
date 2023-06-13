@@ -190,3 +190,19 @@ export function GetDistance( lat1,  lng1,  lat2,  lng2){
   s = Math.round(s * 10000) / 10000;
   return s.toFixed(2);
 }
+/**
+ * @param { number } index - 当前分页列表下标
+ * @param { number } total - 分页总条数
+ * @param { number } size - 每页条数
+ * @param { number } current - 当前页页码
+ * @param { number | 1 | 2 } sortType - 序号排序方式(1: 正序, 2: 倒序)
+ * @description 计算分页序号的方法
+ */
+export const getIndex = (index, total, size, current, sortType = 1) => {
+  if (sortType === 1) {
+    return Math.abs(((total - ((index + 1) + (size * (current - 1)))) - total))
+  } else if (sortType === 2) {
+    return total - ((index + 1) + (size * (current - 1))) + 1
+  }
+  throw '请填写正确的sortType参数'
+}
