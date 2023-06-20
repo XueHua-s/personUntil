@@ -33,7 +33,7 @@ export default function () {
    *
    * @param { string } name 表名
    * @param { string } key 主键名id值
-   * @description 打开数据库
+   * @description 根据主键获取数据
    */
   this.getObj = (name, key) => {
     return new Promise((resolve, reject) => {
