@@ -32,7 +32,7 @@ export default function () {
   /**
    *
    * @param { string } name 表名
-   * @param { string } key 主键名id值
+   * @param { string } key 主键值
    * @description 根据主键获取数据
    */
   this.getObj = (name, key) => {
@@ -70,7 +70,7 @@ export default function () {
   /**
    *
    * @param { string } name 表名
-   * @param { string } key 键名
+   * @param { string } key 主键值
    * @description 打开数据库
    */
   this.deleteObj = (name, key) => {
