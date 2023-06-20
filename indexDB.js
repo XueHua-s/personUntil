@@ -67,7 +67,7 @@ export default function () {
    *
    * @param { string } name 表名
    * @param { Object } data 更新的数据
-   * @description 打开数据库
+   * @description 更新表记录
    */
   this.updateObj = (name, data) => {
     return new Promise((resolve, reject) => {
@@ -86,7 +86,7 @@ export default function () {
    *
    * @param { string } name 表名
    * @param { string } key 主键值
-   * @description 打开数据库
+   * @description 删除表记录
    */
   this.deleteObj = (name, key) => {
     return new Promise((resolve, reject) => {
@@ -105,7 +105,7 @@ export default function () {
    *
    * @param { string } storeName 表名
    * @param { Object } data 添加的数据
-   * @description 表添加数据
+   * @description 表添加记录
    */
   this.addObj = (storeName, data) => {
     return new Promise((resolve, reject) => {
