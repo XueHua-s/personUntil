@@ -31,8 +31,18 @@ export default function () {
       }
     })
   }
+  /**
+   * @description 关闭数据库
+   */
   this.closeDB = () => {
     datebase.close()
+  }
+  /**
+   * @param { string } baseName - 数据库名称
+   * @description 删除数据库
+   */
+  const deleteDB = (baseName) => {
+    indexDB.deleteDatabase(baseName)
   }
   /**
    *
