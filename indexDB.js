@@ -31,6 +31,9 @@ export default function () {
       }
     })
   }
+  this.closeDB = () => {
+    datebase.close()
+  }
   /**
    *
    * @param { string } name 表名
