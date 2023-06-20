@@ -110,13 +110,12 @@ export default function () {
   }
   /**
    * @param { string } storeName - 表名
-   * @param { Object } data - 默认加入的数据
    * @description 新建表
    */
-  this.createStore = (storeName, data) => {
+  this.createStore = (storeName) => {
     return new Promise((resolve, reject) => {
       if (!datebase.objectStoreNames.contains(storeName)) {
-        const reuqest = datebase.createObjectStore(storeName, data)
+        const reuqest = datebase.createObjectStore(storeName, { keyPath: 'id' })
         reuqest.onsuccess(() => {
           resolve()
         })
