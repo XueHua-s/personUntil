@@ -23,7 +23,7 @@ export default function () {
         let db = event.target.result
         let objectStore
         if (!db.objectStoreNames.contains(storeName)) {
-          objectStore = db.createObjectStore(storeName, {}) // 创建表
+          objectStore = db.createObjectStore(storeName, { keyPath: 'id' }) // 创建表
           // objectStore.createIndex('name', 'name', { unique: true }) // 创建索引 可以让你搜索任意字段
         }
       }
@@ -90,7 +90,7 @@ export default function () {
    *
    * @param { string } storeName 表名
    * @param { Object } data 添加的数据
-   * @description 打开数据库
+   * @description 表添加数据
    */
   this.addObj = (storeName, data) => {
     return new Promise((resolve, reject) => {
