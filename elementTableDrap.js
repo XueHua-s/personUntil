@@ -15,7 +15,8 @@ export const moveTableCol = (filters = [], ref, data, callBack) => {
   }
   const end = {
     x: null,
-    y: null
+    y: null,
+    dom: null
   }
   const priveLength = filters.filter((value) => value >= 0).length
   const header = ref.querySelector('table.el-table__header').querySelectorAll('th .cell')
