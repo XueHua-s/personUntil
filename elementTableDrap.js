@@ -43,18 +43,22 @@ export const moveTableCol = (filters = [], ref, data, callBack) => {
     // console.log(headerCol , '123')
     headerCol.setAttribute('drapKey', (parseInt(colKey) - priveLength.toString()))
     headerCol.draggable = true
-    headerCol.addEventListener('dragover', (e) => {
+    const dragoverBack = (e) => {
       e.preventDefault()
       e.stopPropagation()
-    }, false)
-    headerCol.addEventListener('dragstart', (e) => {
+    }
+    headerCol.removeEventListener('dragover', dragoverBack)
+    headerCol.addEventListener('dragover', dragoverBack, false)
+    const dragstartBack = (e) => {
       // console.log(e, 'start')
       e.stopPropagation()
       start.x = e.offsetX
       start.y = e.offsetY
       start.dom = e.target
-    }, false)
-    headerCol.addEventListener('drop', (e) => {
+    }
+    headerCol.removeEventListener('dragstart', dragstartBack)
+    headerCol.addEventListener('dragstart', dragstartBack, false)
+    const dropBack = (e) => {
       e.stopPropagation()
       // console.log(e, 'end')
       // console.log(start.dom, 'start')
@@ -72,6 +76,8 @@ export const moveTableCol = (filters = [], ref, data, callBack) => {
       }
       // console.log(startkeyValue, startKey)
       // console.log(endkeyValue, endKey)
-    }, false)
+    }
+    headerCol.removeEventListener('drop', dropBack)
+    headerCol.addEventListener('drop', dropBack, false)
   }
 }
