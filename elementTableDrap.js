@@ -40,7 +40,7 @@ export const moveTableCol = (filters = [], ref, data, callBack) => {
       continue
     }
     // console.log(headerCol , '123')
-    headerCol.setAttribute('drapKey', parseInt(colKey) - priveLength)
+    headerCol.setAttribute('drapKey', (parseInt(colKey) - priveLength.toString()))
     headerCol.draggable = true
     headerCol.addEventListener('dragover', (e) => {
       e.preventDefault()
