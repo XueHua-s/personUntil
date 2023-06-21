@@ -17,6 +17,7 @@ export const moveTableCol = (filters = [], ref, data, callBack) => {
     x: null,
     y: null
   }
+  const priveLength = filters.filter((value) => value >= 0).length
   const header = ref.querySelector('table.el-table__header').querySelectorAll('th .cell')
   for (const colKey in header) {
     let isJmp = false
@@ -39,7 +40,7 @@ export const moveTableCol = (filters = [], ref, data, callBack) => {
       continue
     }
     // console.log(headerCol , '123')
-    headerCol.setAttribute('drapKey', parseInt(colKey) - filters.filter((value) => value >= 0).length)
+    headerCol.setAttribute('drapKey', parseInt(colKey) - priveLength)
     headerCol.draggable = true
     headerCol.addEventListener('dragover', (e) => {
       e.preventDefault()
