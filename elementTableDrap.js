@@ -1,6 +1,6 @@
 /**
  *
- * @param { Array<Number> } filters - 需要被排除的表头下标(-1表示倒数第一个)
+ * @param { Array<Number> } filters - 需要被排除的(与字段非关联)表头下标(-1表示倒数第一个)
  * @param { Element } ref - 需要操作的element表格
  * @param { Array<string> } data - 控制表头顺序的数组
  * @param { Function} callBack - 更换成功后的回调函数
