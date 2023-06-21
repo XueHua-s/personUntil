@@ -69,6 +69,8 @@ export const moveTableCol = (filters = [], ref, data, callBack) => {
       const startkeyValue = data[startKey]
       const endKey = end.dom.getAttribute('drapKey')
       const endkeyValue = data[endKey]
+      end.dom.setAttribute('drapKey', startKey)
+      start.dom.setAttribute('drapKey', endKey)
       data[startKey] = endkeyValue
       data[endKey] = startkeyValue
       if (typeof callBack === 'function') {
