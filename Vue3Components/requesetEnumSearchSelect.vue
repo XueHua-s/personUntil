@@ -9,10 +9,10 @@
     :placeholder="props.placeholder"
   >
     <el-option
-        v-for="item in list"
-        :key="item[props.valueKey || 'id']"
-        :label="item[props.showKey || 'name']"
-        :value="item"
+      v-for="item in list"
+      :key="item[props.valueKey || 'id']"
+      :label="item[props.showKey || 'name']"
+      :value="item"
     />
   </el-select>
 </template>
