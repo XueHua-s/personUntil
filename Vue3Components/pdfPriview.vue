@@ -11,9 +11,9 @@
   </div>
 </template>
 <script setup>
-import {reactive, onMounted, computed, ref} from 'vue'
-import VuePdfEmbed from "vue-pdf-embed";
-import { createLoadingTask } from "vue3-pdfjs";
+import {reactive, onMounted, computed, ref, onUnmounted} from "vue"
+import VuePdfEmbed from "vue-pdf-embed"
+import { createLoadingTask } from "vue3-pdfjs"
 const props = defineProps({
   pdfUrl: {
     type: String,
@@ -76,6 +76,10 @@ const resizeRenderPdf = () => {
     state.pageNum -= 1;
   }, 200)
 }
+onUnmounted(() => {
+  // 组件被卸载移除事件委托
+  document.removeEventListener('resize', resizeRenderPdf)
+})
 onMounted(() => {
   const loadingTask = createLoadingTask(state.source);
   loadingTask.promise.then((pdf) => {
@@ -83,10 +87,6 @@ onMounted(() => {
   })
   // 添加窗口变化事件委托
   document.addEventListener('resize', resizeRenderPdf)
-})
-unmounted(() => {
-  // 组件被卸载移除事件委托
-  document.removeEventListener('resize', resizeRenderPdf)
 })
 </script>
 <style lang="scss" scoped>
