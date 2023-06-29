@@ -27,6 +27,7 @@ const props = defineProps({
 })
 const pdfRef = ref(null)
 const pageRef = ref(null)
+// const pdfRefShow = ref(null)
 const state = reactive({
   source: props.pdfUrl,
   pageNum: 1,
@@ -49,6 +50,8 @@ function pageZoomOut() {
   //   state.scale += 0.1;
   // }
   state.pageNum += 1;
+  // pdfRefShow.value.style.width = 'auto'
+  // pdfRefShow.value.style.height = '100vh'
   pdfRef.value.requestFullscreen().then(() => {
     state.pageNum -= 1;
   })
@@ -59,16 +62,31 @@ function pageZoomIn() {
   //   state.scale -= 0.1;
   // }
   state.pageNum += 1;
+  // pdfRefShow.value.style.width = '100%'
+  // pdfRefShow.value.style.height = 'auto'
   document.exitFullscreen().then(() => {
     state.pageNum -= 1;
   })
   pageRef.value.style.position = 'absolute'
+}
+// 网页窗口大小变化，重新渲染pdf的方法
+const resizeRenderPdf = () => {
+  state.pageNum += 1;
+  setTimeout(() => {
+    state.pageNum -= 1;
+  }, 200)
 }
 onMounted(() => {
   const loadingTask = createLoadingTask(state.source);
   loadingTask.promise.then((pdf) => {
     state.numPages = pdf.numPages;
   })
+  // 添加窗口变化事件委托
+  document.addEventListener('resize', resizeRenderPdf)
+})
+unmounted(() => {
+  // 组件被卸载移除事件委托
+  document.removeEventListener('resize', resizeRenderPdf)
 })
 </script>
 <style lang="scss" scoped>
