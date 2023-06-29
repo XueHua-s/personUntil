@@ -14,6 +14,7 @@ const optionValueTypeComputed = (value) => {
   } else if (typeof props.value === 'number') {
     return parseInt(value)
   }
+  return value
 }
 </script>
 <style lang="scss" scoped>
