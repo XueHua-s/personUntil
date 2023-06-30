@@ -5,14 +5,15 @@
     :value-key="props.valueKey || 'id'"
     @change="cander($event)"
     filterable
+    :disabled="props.disabled"
     :filter-method="searchData"
     :placeholder="props.placeholder"
   >
     <el-option
-      v-for="item in list"
-      :key="item[props.valueKey || 'id']"
-      :label="item[props.showKey || 'name']"
-      :value="item"
+        v-for="item in list"
+        :key="item[props.valueKey || 'id']"
+        :label="item[props.showKey || 'name']"
+        :value="item"
     />
   </el-select>
 </template>
@@ -20,7 +21,7 @@
 import request from '@/request/index.js'
 import {queryContactsFilter} from "@/api/contacts.js";
 import {ref} from "vue";
-const props = defineProps(['value', 'cander', 'startSearch', 'placeholder', 'showKey', 'sizeKey', 'currentKey', 'responseKey', 'valueKey', 'method', 'url'])
+const props = defineProps(['value', 'appendQuery', 'disabled', 'cander', 'startSearch', 'placeholder', 'showKey', 'sizeKey', 'currentKey', 'responseKey', 'valueKey', 'method', 'url'])
 const emit = defineEmits(null)
 const list = ref([])
 const shake = ref(null)
@@ -34,7 +35,8 @@ const searchData = (searchName) => {
       [{ 'GET': 'params', 'POST': 'data' }[props.method || 'GET']]: {
         [props.currentKey || 'current']: 1,
         [props.sizeKey || 'size']: 10,
-        [props.showKey || 'name']: searchName
+        [props.showKey || 'name']: searchName,
+        ...props.appendQuery
       }
     }).then((res) => {
       list.value = res.data[props.responseKey || 'list']
