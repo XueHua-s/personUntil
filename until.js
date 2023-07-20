@@ -4,7 +4,7 @@ const tipsDuration = 2000
 /**
  * 
  * @param { number } maxlength 
- * @param { string } text 
+ * @param { string } text
  * @description - 如果超出某长度增加...返回
  */
 export const detatilSubstring = (maxlength, text) => {
@@ -96,6 +96,12 @@ export const isWriteMobile = () => {
   return true
 }
 /**
+ * @param { Object } rules - 校验字段
+ * @param { Object } rules.any - 校验方式
+ * @param { Boolean } rules.any.required - 是否必填
+ * @param { String } rules.any.message - 校验消息
+ * @param { Function } rules.any.customize - 校验函数(返回true,false)
+ * @param { Object } data - 表单对象
  * @description - 表单校验方法
  */
 export const formRuleValid = (rules, data) => {
@@ -142,6 +148,7 @@ export const formRuleValid = (rules, data) => {
   return isSuccess
 }
 /**
+ * @param { String } idCard
  * @description - 身份证号码提取生日
  */
 export const idCardGetBirth = (idCard) => {
@@ -154,6 +161,7 @@ export const idCardGetBirth = (idCard) => {
   return ''
 }
 /**
+ * @param { string } idCard
  * @description - 身份证号码提取性别
  */
 export const idCardGetSex = (idCard) => {
@@ -177,16 +185,48 @@ export const openCallPhone = (phoneNumber) => new Promise((resolve, reject) => {
   })
 })
 /**
+ * @param { number } lat1
+ * @param { number } lng1
+ * @param { number } lat2
+ * @param { number } lng2
  * @description 根据两组经纬度，来计算km距离
  */
 export function GetDistance( lat1,  lng1,  lat2,  lng2){
-  var radLat1 = lat1*Math.PI / 180.0;
-  var radLat2 = lat2*Math.PI / 180.0;
-  var a = radLat1 - radLat2;
-  var  b = lng1*Math.PI / 180.0 - lng2*Math.PI / 180.0;
-  var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) +
+  let radLat1 = lat1*Math.PI / 180.0;
+  let radLat2 = lat2*Math.PI / 180.0;
+  let a = radLat1 - radLat2;
+  let  b = lng1*Math.PI / 180.0 - lng2*Math.PI / 180.0;
+  let s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) +
   Math.cos(radLat1)*Math.cos(radLat2)*Math.pow(Math.sin(b/2),2)));
   s = s *6378.137 ;// EARTH_RADIUS;
   s = Math.round(s * 10000) / 10000;
   return s.toFixed(2);
+}
+/**
+ * @param { number } index - 当前分页列表下标
+ * @param { number } total - 分页总条数
+ * @param { number } size - 每页条数
+ * @param { number } current - 当前页页码
+ * @param { number | 1 | 2 } sortType - 序号排序方式(1: 正序, 2: 倒序)
+ * @description 计算分页序号的方法
+ */
+export const getIndex = (index, total, size, current, sortType = 1) => {
+  if (typeof index !== "number") {
+    throw `index不能为${typeof index}`
+  }
+  if (typeof size !== "number") {
+    throw `size不能为${typeof size}`
+  }
+  if (typeof total !== "number") {
+    throw `total不能为${typeof total}`
+  }
+  if (typeof current !== "number") {
+    throw `current不能为${typeof current}`
+  }
+  if (sortType === 1) {
+    return Math.abs(((total - ((index + 1) + (size * (current - 1)))) - total))
+  } else if (sortType === 2) {
+    return total - ((index + 1) + (size * (current - 1))) + 1
+  }
+  throw '请填写正确的sortType参数'
 }
