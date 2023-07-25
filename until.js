@@ -246,7 +246,7 @@ export const shakeFun = (fun, time) => {
 }
 /**
  * @param { Function } fun - 传入的执行函数体
- * @param { Number } time - 防抖时间
+ * @param { Number } time - 节流时间
  * @description 创建节流函数
  */
 export const throttlingFun = (fun, time) => {
