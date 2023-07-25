@@ -2,19 +2,19 @@
 import { idCardCheck } from '../utils/checkSetupApi'
 const tipsDuration = 2000
 /**
- * 
- * @param { number } maxlength 
+ *
+ * @param { number } maxlength
  * @param { string } text
  * @description - 如果超出某长度增加...返回
  */
 export const detatilSubstring = (maxlength, text) => {
   if (text > maxlength) {
-    return `${text.substring(0, maxlength)}...` 
+    return `${text.substring(0, maxlength)}...`
   }
   return text
 }
 /**
-  * 
+  *
   * @param { string } data.url - 小程序页面路径
   * @param { object } data.query - 小程序页面需要传递的参数
   * @param { object } data.close - 跳转页面时是否关闭当前页面
@@ -65,7 +65,7 @@ export const pushRedirectTo = (data) => {
   }
 }
 /**
- * 
+ *
  * @param { htmlNodes } html
  * @description - 处理富文本样式的方法
  */
@@ -229,4 +229,36 @@ export const getIndex = (index, total, size, current, sortType = 1) => {
     return total - ((index + 1) + (size * (current - 1))) + 1
   }
   throw '请填写正确的sortType参数'
+}
+/**
+ * @param { Function } fun - 传入的执行函数体
+ * @param { Number } time - 防抖时间
+ * @description 创建防抖函数
+ */
+export const shakeFun = (fun, time) => {
+  let shake = null
+  return function () {
+    clearTimeout(shake)
+    setTimeout(() => {
+      fun(...this.arguments)
+    }, time)
+  }
+}
+/**
+ * @param { Function } fun - 传入的执行函数体
+ * @param { Number } time - 防抖时间
+ * @description 创建节流函数
+ */
+export const throttlingFun = (fun, time) => {
+  let isTue = true
+  return function () {
+    if (isTue === false) {
+      return
+    }
+    fun(...this.arguments)
+    isTue = false
+    setTimeout(() => {
+      isTue = true
+    }, time)
+  }
 }
