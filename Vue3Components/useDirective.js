@@ -29,11 +29,17 @@ export const useInstruction = (app) => {
     const elBodyC = elBody.children
     if (elBodyC.length > 3) {
       // 给表格添加只展示三行的类名
-      elBody.classList.add('el-folding')
+      if (el.querySelector('.rotate')) {
+        elBody.classList.remove('el-folding')
+      } else {
+        elBody.classList.add('el-folding')
+      }
       // 判断有没有创建过面板
       const foldingLine = el.querySelector('.el-folding-line')
       if (foldingLine) {
-        el.removeElement(foldingLine)
+        if (el?.removeElement) {
+          el.removeElement(foldingLine)
+        }
       }
       if (!foldingLine) {
         // 创建折叠面板元素
@@ -45,7 +51,7 @@ export const useInstruction = (app) => {
         extendsTop.append(extendsTopButton)
         el.append(extendsTop)
         // 控制变量
-        let controller = false
+        let controller = true
         extendsTop.addEventListener('click', () => {
           if (controller) {
             extendsTopButton.classList.add('rotate')
@@ -57,6 +63,8 @@ export const useInstruction = (app) => {
           controller = !controller
         })
       }
+    } else {
+      elBody.classList.remove('el-folding')
     }
   })
 }
