@@ -1,0 +1,16 @@
+/* */
+.el-folding > tr:nth-child(n + 4) {
+  display: none;
+}
+.el-folding-line {
+  cursor: pointer;
+  border-bottom: 1px solid var(--el-table-border-color);
+}
+.el-folding-extends {
+  /*cursor: pointer;*/
+  transition-duration: 400ms;
+}
+.el-folding-extends.rotate {
+  cursor: pointer;
+  transform: rotate(180deg);
+}
