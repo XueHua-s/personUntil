@@ -6,6 +6,9 @@
   cursor: pointer;
   border-bottom: 1px solid var(--el-table-border-color);
 }
+.el-folding-line:active {
+  background-color: #F5F6FB;
+}
 .el-folding-extends {
   /*cursor: pointer;*/
   transition-duration: 400ms;
