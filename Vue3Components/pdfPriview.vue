@@ -49,11 +49,16 @@ function pageZoomOut() {
   // if (state.scale < 2) {
   //   state.scale += 0.1;
   // }
-  state.pageNum += 1;
+  let downNum = state.pageNum
+  if (downNum === state.numPages) {
+    state.pageNum = 1
+  } else {
+    state.pageNum = state.numPages;
+  }
   // pdfRefShow.value.style.width = 'auto'
   // pdfRefShow.value.style.height = '100vh'
   pdfRef.value.requestFullscreen().then(() => {
-    state.pageNum -= 1;
+    state.pageNum = downNum
   })
   pageRef.value.style.position = 'fixed'
 }
@@ -61,11 +66,16 @@ function pageZoomIn() {
   // if (state.scale > 1) {
   //   state.scale -= 0.1;
   // }
-  state.pageNum += 1;
+  let downNum = state.pageNum
+  if (downNum === state.numPages) {
+    state.pageNum = 1
+  } else {
+    state.pageNum = state.numPages;
+  }
   // pdfRefShow.value.style.width = '100%'
   // pdfRefShow.value.style.height = 'auto'
   document.exitFullscreen().then(() => {
-    state.pageNum -= 1;
+    state.pageNum = downNum
   })
   pageRef.value.style.position = 'absolute'
 }
@@ -85,6 +95,12 @@ onMounted(() => {
   loadingTask.promise.then((pdf) => {
     state.numPages = pdf.numPages;
   })
+  // 监听全屏变化
+  document.addEventListener('fullscreenchange', () => {
+    if (!document?.fullscreenElement ?? false) {
+      pageZoomIn()
+    }
+  }, false)
   // 添加窗口变化事件委托
   // document.addEventListener('resize', resizeRenderPdf)
 })
