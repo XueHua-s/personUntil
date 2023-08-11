@@ -237,10 +237,10 @@ export const getIndex = (index, total, size, current, sortType = 1) => {
  */
 export const shakeFun = (fun, time) => {
   let shake = null
-  return function () {
+  return function (...arg) {
     clearTimeout(shake)
     shake = setTimeout(() => {
-      fun(...this.arguments)
+      fun(...arg)
     }, time)
   }
 }
@@ -251,14 +251,15 @@ export const shakeFun = (fun, time) => {
  */
 export const throttlingFun = (fun, time) => {
   let isTue = true
-  return function () {
+  return function (...arg) {
     if (isTue === false) {
       return
     }
-    fun(...this.arguments)
+    fun(...arg)
     isTue = false
     setTimeout(() => {
       isTue = true
     }, time)
   }
 }
+
