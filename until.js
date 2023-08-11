@@ -239,7 +239,7 @@ export const shakeFun = (fun, time) => {
   let shake = null
   return function () {
     clearTimeout(shake)
-    setTimeout(() => {
+    shake = setTimeout(() => {
       fun(...this.arguments)
     }, time)
   }

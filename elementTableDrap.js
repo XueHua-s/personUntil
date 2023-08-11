@@ -51,10 +51,7 @@ export const moveTableCol = (filters = [], ref, data, callBack) => {
     // 增加拖拽触发方式
     headerCol.addEventListener('mousedown', () => {
       // 父元素不处于拖拽边框线下的状态，才能够拖拽
-      headerCol.draggable = (~event.target.parentElement.className.indexOf('noclick') && true)
-    })
-    headerCol.addEventListener('mouseup', () => {
-      headerCol.draggable = false
+      headerCol.draggable = (getComputedStyle(document.body).cursor !== 'col-resize')
     })
     const dragoverBack = (e) => {
       e.preventDefault()
@@ -93,6 +90,8 @@ export const moveTableCol = (filters = [], ref, data, callBack) => {
         start.dom.setAttribute('drapKey', endKey)
         data[startKey] = endkeyValue
         data[endKey] = startkeyValue
+        start.dom.draggable = false
+        end.dom.draggable = false
         start.dom.parentElement.classList.add('trans-d')
         start.dom.parentElement.classList.add('trans-l')
         // end.dom.parentElement.classList.add('trans-d')
