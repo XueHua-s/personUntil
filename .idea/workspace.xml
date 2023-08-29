@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="849314ba-f0be-40c6-90f6-54b5344e8a1f" name="更改" comment="1" />
+    <list default="true" id="849314ba-f0be-40c6-90f6-54b5344e8a1f" name="更改" comment="增加渲染树的方法">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +57,8 @@
       <workItem from="1690526150345" duration="28000" />
       <workItem from="1690959107545" duration="48000" />
       <workItem from="1691036874923" duration="47000" />
+      <workItem from="1693275709342" duration="101000" />
+      <workItem from="1693276036167" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -80,7 +84,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691036895333</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="增加渲染树的方法">
+      <option name="closed" value="true" />
+      <created>1693275800826</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1693275800826</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="增加渲染树的方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加渲染树的方法" />
   </component>
 </project>

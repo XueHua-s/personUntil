@@ -263,28 +263,29 @@ export const throttlingFun = (fun, time) => {
   }
 }
 // 渲染树状表格下标
-const renderTreeIndex = (prevIndex, row, type, topNode = null, prev = null) => {
+const renderTreeIndex = (prevIndex, row, deep, topNode = null, prev = null) => {
   if (row.children) {
     for (const index in row.children) {
       row.children[index].key = `${prevIndex}-${parseInt(index) + 1}`
-      row.children[index].treeType = type
+      row.children[index].treeDeep = deep
       row.children[index].topNode = topNode || row
       row.children[index].prev = prev || row
       if (row.children[index]) {
-        renderTreeIndex(row.children[index].key, row.children[index], row.children[index].treeType + 1, row, row.children[index])
+        renderTreeIndex(row.children[index].key, row.children[index], row.children[index].treeDeep + 1, row, row.children[index])
       }
     }
   }
 }
 // 设置树类型和树下标的方法
-export const setTreeTypeAndIndex = (list) => {
+export const mapTreeAddLinked = (list) => {
   const newList = lodash.cloneDeep(list)
   newList.forEach((item, key) => {
     item.key = key + 1
-    item.treeType = 1
+    item.treeDeep = 1
     item.topNode = null
     item.prev = null
-    renderTreeIndex(item.key, item, item.treeType + 1)
+    renderTreeIndex(item.key, item, item.treeDeep + 1)
   })
   return newList
 }
+
