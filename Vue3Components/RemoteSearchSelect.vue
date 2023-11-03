@@ -1,21 +1,40 @@
 <template>
   <NSelect
-    :multiple="props.multiple"
-    v-model:value="aliveValue"
-    :options="searchList"
-    :filterable="openSearch"
-    @search="search"
-    :placeholder="props.placeholder"
-    :disabled="props.disabled">
+      v-if="threeType !== 'three'"
+      :multiple="props.multiple"
+      v-model:value="aliveValue"
+      :options="searchList"
+      :filterable="openSearch"
+      @search="search"
+      :placeholder="props.placeholder"
+      :disabled="props.disabled">
   </NSelect>
+  <NTreeSelect
+      v-else
+      v-model:value="aliveValue"
+      :multiple="props.multiple"
+      :children-field="props.childrenKey"
+      cascade
+      :key-field="props.valueKey"
+      :label-field="props.showKey || props.searchKey"
+      checkable
+      :options="searchList"
+      :default-value="['Norwegian Wood']"
+  />
 </template>
 <script setup>
-import { NSelect } from 'naive-ui'
+import { NSelect, NTreeSelect } from 'naive-ui'
 import { ref, watch, onUnmounted } from 'vue'
 import { shakeFun } from '@/untils/shakeAndThrottle'
 const props = defineProps({
   multiple: {
     default: false
+  },
+  threeType: {
+    default: 'select'
+  },
+  childrenKey: {
+    default: 'children'
   },
   openSearch: {
     default: true,
