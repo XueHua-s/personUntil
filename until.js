@@ -65,22 +65,6 @@ export const pushRedirectTo = (data) => {
   }
 }
 /**
- *
- * @param { htmlNodes } html
- * @description - 处理富文本样式的方法
- */
-export const formatRichText = (html) => {
-  // 更换图片样式
-  let newContent= html.replace(/\<img /gi,'<img style="max-width:100%;height:auto;display:block;margin-top:8px;margin-bottom:8px;border-radius: 12px;"')
-  // console.log(newContent, 'aspectFill')
-  newContent = newContent.replace(/style=\"\"/gi, (match) => {
-    // console.log(match, 'newContent');
-    match = ''
-    return match
-  })
-  return newContent;
-}
-/**
  * @description - 判断用户有无填写手机号
  */
 export const isWriteMobile = () => {
@@ -288,4 +272,22 @@ export const mapTreeAddLinked = (list) => {
   })
   return newList
 }
-
+/**
+ *
+ * @param { htmlNodes } html
+ * @description - 处理富文本样式的方法
+ */
+export const formatRichText = (html) => {
+  html = html.replace(/<img[^>]*>/gi, (match, capture) => {
+    // eslint-disable-next-line no-useless-escape
+    const matchI = match.replace(/style=\"(.*)\"/gi, '')
+    return matchI
+  })
+  // 更换图片样式
+  let newContent= html.replace(/\<img /gi,'<img style="max-width:100%;height:auto;display:block;margin-top:8px;margin-bottom:8px;border-radius: 12px;"')
+  // newContent = newContent.replace(/style=\"\"/gi, (match) => {
+  //   match = ''
+  //   return match
+  // })
+  return newContent;
+}

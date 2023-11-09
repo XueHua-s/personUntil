@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="849314ba-f0be-40c6-90f6-54b5344e8a1f" name="更改" comment="增加渲染树的方法">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -32,15 +35,21 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/10060/Desktop/Project/personUntil/Vue3Components&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/xuehua/Desktop/项目/personUntil&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/opt/apps/com.jetbrains.webstorm/files/WebStorm/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Vue3Components" />
       <recent name="C:\Users\10060\Desktop\Project\personUntil\Vue3Components" />
       <recent name="C:\Users\10060\Desktop\Project\personUntil" />
     </key>
@@ -59,6 +68,11 @@
       <workItem from="1691036874923" duration="47000" />
       <workItem from="1693275709342" duration="101000" />
       <workItem from="1693276036167" duration="40000" />
+      <workItem from="1697612256320" duration="94000" />
+      <workItem from="1698718968661" duration="166000" />
+      <workItem from="1698720299387" duration="882000" />
+      <workItem from="1698744954836" duration="21000" />
+      <workItem from="1698990853135" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -92,7 +106,47 @@
       <option name="project" value="LOCAL" />
       <updated>1693275800826</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="增加渲染树的方法">
+      <option name="closed" value="true" />
+      <created>1697612289802</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697612289802</updated>
+    </task>
+    <task id="LOCAL-00006" summary="增加渲染树的方法">
+      <option name="closed" value="true" />
+      <created>1698718981706</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698718981706</updated>
+    </task>
+    <task id="LOCAL-00007" summary="增加渲染树的方法">
+      <option name="closed" value="true" />
+      <created>1698720315333</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698720315333</updated>
+    </task>
+    <task id="LOCAL-00008" summary="增加渲染树的方法">
+      <option name="closed" value="true" />
+      <created>1698744969620</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698744969620</updated>
+    </task>
+    <task id="LOCAL-00009" summary="增加渲染树的方法">
+      <option name="closed" value="true" />
+      <created>1698990875331</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698990875331</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
